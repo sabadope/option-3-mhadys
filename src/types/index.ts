@@ -34,7 +34,7 @@ export interface Customer {
   city: string;
   joinedAt: string; // ISO
   tags: string[];
-  notes?: string;
+  notes?: string | undefined;
 }
 
 /* ---------------- Events ---------------- */
@@ -92,7 +92,7 @@ export interface Attendee {
   email: string;
   qrCode: string;
   checkedIn: boolean;
-  checkedInAt?: string;
+  checkedInAt?: string | undefined;
 }
 
 export interface CheckIn {
@@ -112,7 +112,7 @@ export interface ProductVariant {
   productId: ID;
   name: string; // e.g. "Black / M"
   option1: string; // color
-  option2?: string; // size
+  option2?: string | undefined; // size
   sku: string;
   price: number;
   stock: number;
@@ -127,7 +127,7 @@ export interface Product {
   categoryId: ID;
   sku: string;
   price: number;
-  compareAtPrice?: number;
+  compareAtPrice?: number | undefined;
   status: ProductStatus;
   variants: ProductVariant[];
   lowStockThreshold: number;
@@ -183,7 +183,7 @@ export interface OrderItem {
 export interface OrderEvent {
   status: OrderStatus | "payment_received";
   at: string;
-  note?: string;
+  note?: string | undefined;
 }
 
 export interface Order {
@@ -199,7 +199,7 @@ export interface Order {
   paymentStatus: PaymentStatus;
   paymentMethod: PaymentMethod;
   shippingAddress: string;
-  trackingNumber?: string;
+  trackingNumber?: string | undefined;
   createdAt: string;
   timeline: OrderEvent[];
 }
@@ -210,9 +210,9 @@ export interface Discount {
   type: "percent" | "fixed";
   value: number;
   usage: number;
-  limit?: number;
+  limit?: number | undefined;
   active: boolean;
-  expiresAt?: string;
+  expiresAt?: string | undefined;
 }
 
 export interface CartLine {
@@ -232,7 +232,7 @@ export interface Bay {
   name: string;
   type: BayType;
   status: BayStatus;
-  currentWorkOrderId?: ID;
+  currentWorkOrderId?: ID | undefined;
 }
 
 export interface Service {
@@ -262,7 +262,7 @@ export interface Vehicle {
   plate: string;
   color: string;
   type: "sedan" | "suv" | "pickup" | "coupe" | "hatchback" | "van";
-  notes?: string;
+  notes?: string | undefined;
 }
 
 export interface StaffMember {
@@ -293,11 +293,11 @@ export interface Appointment {
   date: string; // YYYY-MM-DD
   time: string; // HH:mm
   durationMinutes: number;
-  bayId?: ID;
-  staffId?: ID;
+  bayId?: ID | undefined;
+  staffId?: ID | undefined;
   status: AppointmentStatus;
   total: number;
-  notes?: string;
+  notes?: string | undefined;
   createdAt: string;
 }
 
@@ -324,16 +324,16 @@ export interface WorkOrder {
   vehicleId: ID;
   serviceId: ID;
   addOnIds: ID[];
-  staffId?: ID;
-  bayId?: ID;
+  staffId?: ID | undefined;
+  bayId?: ID | undefined;
   status: WorkOrderStatus;
   notes: string;
   checklist: ChecklistItem[];
   beforePhotos: string[];
   afterPhotos: string[];
-  paymentId?: ID;
-  startedAt?: string;
-  completedAt?: string;
+  paymentId?: ID | undefined;
+  startedAt?: string | undefined;
+  completedAt?: string | undefined;
   timeline: { status: WorkOrderStatus; at: string }[];
 }
 
@@ -366,13 +366,13 @@ export interface Notification {
   body: string;
   createdAt: string;
   read: boolean;
-  href?: string;
+  href?: string | undefined;
 }
 
 export interface ActivityItem {
   id: ID;
   module: ModuleId;
-  customerId?: ID;
+  customerId?: ID | undefined;
   title: string;
   detail: string;
   at: string;

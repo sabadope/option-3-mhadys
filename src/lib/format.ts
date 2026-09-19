@@ -20,7 +20,7 @@ export function formatDateLong(iso: string) {
 }
 
 export function formatTime(hhmm: string) {
-  const [h, m] = hhmm.split(":").map(Number);
+  const [h = 0, m = 0] = hhmm.split(":").map(Number);
   const d = new Date(2000, 0, 1, h, m);
   return format(d, "h:mm a");
 }
@@ -58,7 +58,7 @@ export function minutesToLabel(mins: number) {
 }
 
 export function addMinutes(hhmm: string, mins: number) {
-  const [h, m] = hhmm.split(":").map(Number);
+  const [h = 0, m = 0] = hhmm.split(":").map(Number);
   const total = h * 60 + m + mins;
   return `${String(Math.floor(total / 60) % 24).padStart(2, "0")}:${String(total % 60).padStart(2, "0")}`;
 }
