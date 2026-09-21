@@ -17,9 +17,19 @@ import { Route as AppIndexRouteImport } from './routes/app.index'
 import { Route as AppActivityRouteImport } from './routes/app.activity'
 import { Route as AppModulesRouteImport } from './routes/app.modules'
 import { Route as AppNotificationsRouteImport } from './routes/app.notifications'
+import { Route as AppReportsRouteImport } from './routes/app.reports'
+import { Route as AppSettingsRouteImport } from './routes/app.settings'
+import { Route as AppAutocareIndexRouteImport } from './routes/app.autocare.index'
 import { Route as AppCommerceIndexRouteImport } from './routes/app.commerce.index'
+import { Route as AppCustomersIndexRouteImport } from './routes/app.customers.index'
+import { Route as AppCustomersCustomerIdRouteImport } from './routes/app.customers.$customerId'
 import { Route as AppEventsIndexRouteImport } from './routes/app.events.index'
+import { Route as AppEventsEventIdRouteImport } from './routes/app.events.$eventId'
 import { Route as AppEventsListRouteImport } from './routes/app.events.list'
+import { Route as AppEventsNewRouteImport } from './routes/app.events.new'
+import { Route as AppCommerceProductsIndexRouteImport } from './routes/app.commerce.products.index'
+import { Route as AppCommerceProductsProductIdRouteImport } from './routes/app.commerce.products.$productId'
+import { Route as AppCommerceProductsNewRouteImport } from './routes/app.commerce.products.new'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -61,9 +71,34 @@ const AppNotificationsRoute = AppNotificationsRouteImport.update({
   path: '/notifications',
   getParentRoute: () => AppRoute,
 } as any)
+const AppReportsRoute = AppReportsRouteImport.update({
+  id: '/reports',
+  path: '/reports',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppSettingsRoute = AppSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppAutocareIndexRoute = AppAutocareIndexRouteImport.update({
+  id: '/autocare/',
+  path: '/autocare/',
+  getParentRoute: () => AppRoute,
+} as any)
 const AppCommerceIndexRoute = AppCommerceIndexRouteImport.update({
   id: '/commerce/',
   path: '/commerce/',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppCustomersIndexRoute = AppCustomersIndexRouteImport.update({
+  id: '/customers/',
+  path: '/customers/',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppCustomersCustomerIdRoute = AppCustomersCustomerIdRouteImport.update({
+  id: '/customers/$customerId',
+  path: '/customers/$customerId',
   getParentRoute: () => AppRoute,
 } as any)
 const AppEventsIndexRoute = AppEventsIndexRouteImport.update({
@@ -71,9 +106,36 @@ const AppEventsIndexRoute = AppEventsIndexRouteImport.update({
   path: '/events/',
   getParentRoute: () => AppRoute,
 } as any)
+const AppEventsEventIdRoute = AppEventsEventIdRouteImport.update({
+  id: '/events/$eventId',
+  path: '/events/$eventId',
+  getParentRoute: () => AppRoute,
+} as any)
 const AppEventsListRoute = AppEventsListRouteImport.update({
   id: '/events/list',
   path: '/events/list',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppEventsNewRoute = AppEventsNewRouteImport.update({
+  id: '/events/new',
+  path: '/events/new',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppCommerceProductsIndexRoute =
+  AppCommerceProductsIndexRouteImport.update({
+    id: '/commerce/products/',
+    path: '/commerce/products/',
+    getParentRoute: () => AppRoute,
+  } as any)
+const AppCommerceProductsProductIdRoute =
+  AppCommerceProductsProductIdRouteImport.update({
+    id: '/commerce/products/$productId',
+    path: '/commerce/products/$productId',
+    getParentRoute: () => AppRoute,
+  } as any)
+const AppCommerceProductsNewRoute = AppCommerceProductsNewRouteImport.update({
+  id: '/commerce/products/new',
+  path: '/commerce/products/new',
   getParentRoute: () => AppRoute,
 } as any)
 
@@ -85,10 +147,20 @@ export interface FileRoutesByFullPath {
   '/app/activity': typeof AppActivityRoute
   '/app/modules': typeof AppModulesRoute
   '/app/notifications': typeof AppNotificationsRoute
+  '/app/reports': typeof AppReportsRoute
+  '/app/settings': typeof AppSettingsRoute
   '/app/': typeof AppIndexRoute
+  '/app/customers/$customerId': typeof AppCustomersCustomerIdRoute
+  '/app/events/$eventId': typeof AppEventsEventIdRoute
   '/app/events/list': typeof AppEventsListRoute
+  '/app/events/new': typeof AppEventsNewRoute
+  '/app/autocare/': typeof AppAutocareIndexRoute
   '/app/commerce/': typeof AppCommerceIndexRoute
+  '/app/customers/': typeof AppCustomersIndexRoute
   '/app/events/': typeof AppEventsIndexRoute
+  '/app/commerce/products/$productId': typeof AppCommerceProductsProductIdRoute
+  '/app/commerce/products/new': typeof AppCommerceProductsNewRoute
+  '/app/commerce/products/': typeof AppCommerceProductsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -97,10 +169,20 @@ export interface FileRoutesByTo {
   '/app/activity': typeof AppActivityRoute
   '/app/modules': typeof AppModulesRoute
   '/app/notifications': typeof AppNotificationsRoute
+  '/app/reports': typeof AppReportsRoute
+  '/app/settings': typeof AppSettingsRoute
   '/app': typeof AppIndexRoute
+  '/app/customers/$customerId': typeof AppCustomersCustomerIdRoute
+  '/app/events/$eventId': typeof AppEventsEventIdRoute
   '/app/events/list': typeof AppEventsListRoute
+  '/app/events/new': typeof AppEventsNewRoute
+  '/app/autocare': typeof AppAutocareIndexRoute
   '/app/commerce': typeof AppCommerceIndexRoute
+  '/app/customers': typeof AppCustomersIndexRoute
   '/app/events': typeof AppEventsIndexRoute
+  '/app/commerce/products/$productId': typeof AppCommerceProductsProductIdRoute
+  '/app/commerce/products/new': typeof AppCommerceProductsNewRoute
+  '/app/commerce/products': typeof AppCommerceProductsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -111,10 +193,20 @@ export interface FileRoutesById {
   '/app/activity': typeof AppActivityRoute
   '/app/modules': typeof AppModulesRoute
   '/app/notifications': typeof AppNotificationsRoute
+  '/app/reports': typeof AppReportsRoute
+  '/app/settings': typeof AppSettingsRoute
   '/app/': typeof AppIndexRoute
+  '/app/customers/$customerId': typeof AppCustomersCustomerIdRoute
+  '/app/events/$eventId': typeof AppEventsEventIdRoute
   '/app/events/list': typeof AppEventsListRoute
+  '/app/events/new': typeof AppEventsNewRoute
+  '/app/autocare/': typeof AppAutocareIndexRoute
   '/app/commerce/': typeof AppCommerceIndexRoute
+  '/app/customers/': typeof AppCustomersIndexRoute
   '/app/events/': typeof AppEventsIndexRoute
+  '/app/commerce/products/$productId': typeof AppCommerceProductsProductIdRoute
+  '/app/commerce/products/new': typeof AppCommerceProductsNewRoute
+  '/app/commerce/products/': typeof AppCommerceProductsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -126,10 +218,20 @@ export interface FileRouteTypes {
     | '/app/activity'
     | '/app/modules'
     | '/app/notifications'
+    | '/app/reports'
+    | '/app/settings'
     | '/app/'
+    | '/app/customers/$customerId'
+    | '/app/events/$eventId'
     | '/app/events/list'
+    | '/app/events/new'
+    | '/app/autocare/'
     | '/app/commerce/'
+    | '/app/customers/'
     | '/app/events/'
+    | '/app/commerce/products/$productId'
+    | '/app/commerce/products/new'
+    | '/app/commerce/products/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -138,10 +240,20 @@ export interface FileRouteTypes {
     | '/app/activity'
     | '/app/modules'
     | '/app/notifications'
+    | '/app/reports'
+    | '/app/settings'
     | '/app'
+    | '/app/customers/$customerId'
+    | '/app/events/$eventId'
     | '/app/events/list'
+    | '/app/events/new'
+    | '/app/autocare'
     | '/app/commerce'
+    | '/app/customers'
     | '/app/events'
+    | '/app/commerce/products/$productId'
+    | '/app/commerce/products/new'
+    | '/app/commerce/products'
   id:
     | '__root__'
     | '/'
@@ -151,10 +263,20 @@ export interface FileRouteTypes {
     | '/app/activity'
     | '/app/modules'
     | '/app/notifications'
+    | '/app/reports'
+    | '/app/settings'
     | '/app/'
+    | '/app/customers/$customerId'
+    | '/app/events/$eventId'
     | '/app/events/list'
+    | '/app/events/new'
+    | '/app/autocare/'
     | '/app/commerce/'
+    | '/app/customers/'
     | '/app/events/'
+    | '/app/commerce/products/$productId'
+    | '/app/commerce/products/new'
+    | '/app/commerce/products/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -222,11 +344,46 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppNotificationsRouteImport
       parentRoute: typeof AppRoute
     }
+    '/app/reports': {
+      id: '/app/reports'
+      path: '/reports'
+      fullPath: '/app/reports'
+      preLoaderRoute: typeof AppReportsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/settings': {
+      id: '/app/settings'
+      path: '/settings'
+      fullPath: '/app/settings'
+      preLoaderRoute: typeof AppSettingsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/autocare/': {
+      id: '/app/autocare/'
+      path: '/autocare'
+      fullPath: '/app/autocare/'
+      preLoaderRoute: typeof AppAutocareIndexRouteImport
+      parentRoute: typeof AppRoute
+    }
     '/app/commerce/': {
       id: '/app/commerce/'
       path: '/commerce'
       fullPath: '/app/commerce/'
       preLoaderRoute: typeof AppCommerceIndexRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/customers/': {
+      id: '/app/customers/'
+      path: '/customers'
+      fullPath: '/app/customers/'
+      preLoaderRoute: typeof AppCustomersIndexRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/customers/$customerId': {
+      id: '/app/customers/$customerId'
+      path: '/customers/$customerId'
+      fullPath: '/app/customers/$customerId'
+      preLoaderRoute: typeof AppCustomersCustomerIdRouteImport
       parentRoute: typeof AppRoute
     }
     '/app/events/': {
@@ -236,11 +393,46 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppEventsIndexRouteImport
       parentRoute: typeof AppRoute
     }
+    '/app/events/$eventId': {
+      id: '/app/events/$eventId'
+      path: '/events/$eventId'
+      fullPath: '/app/events/$eventId'
+      preLoaderRoute: typeof AppEventsEventIdRouteImport
+      parentRoute: typeof AppRoute
+    }
     '/app/events/list': {
       id: '/app/events/list'
       path: '/events/list'
       fullPath: '/app/events/list'
       preLoaderRoute: typeof AppEventsListRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/events/new': {
+      id: '/app/events/new'
+      path: '/events/new'
+      fullPath: '/app/events/new'
+      preLoaderRoute: typeof AppEventsNewRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/commerce/products/': {
+      id: '/app/commerce/products/'
+      path: '/commerce/products'
+      fullPath: '/app/commerce/products/'
+      preLoaderRoute: typeof AppCommerceProductsIndexRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/commerce/products/$productId': {
+      id: '/app/commerce/products/$productId'
+      path: '/commerce/products/$productId'
+      fullPath: '/app/commerce/products/$productId'
+      preLoaderRoute: typeof AppCommerceProductsProductIdRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/commerce/products/new': {
+      id: '/app/commerce/products/new'
+      path: '/commerce/products/new'
+      fullPath: '/app/commerce/products/new'
+      preLoaderRoute: typeof AppCommerceProductsNewRouteImport
       parentRoute: typeof AppRoute
     }
   }
@@ -250,20 +442,40 @@ interface AppRouteChildren {
   AppActivityRoute: typeof AppActivityRoute
   AppModulesRoute: typeof AppModulesRoute
   AppNotificationsRoute: typeof AppNotificationsRoute
+  AppReportsRoute: typeof AppReportsRoute
+  AppSettingsRoute: typeof AppSettingsRoute
   AppIndexRoute: typeof AppIndexRoute
+  AppCustomersCustomerIdRoute: typeof AppCustomersCustomerIdRoute
+  AppEventsEventIdRoute: typeof AppEventsEventIdRoute
   AppEventsListRoute: typeof AppEventsListRoute
+  AppEventsNewRoute: typeof AppEventsNewRoute
+  AppAutocareIndexRoute: typeof AppAutocareIndexRoute
   AppCommerceIndexRoute: typeof AppCommerceIndexRoute
+  AppCustomersIndexRoute: typeof AppCustomersIndexRoute
   AppEventsIndexRoute: typeof AppEventsIndexRoute
+  AppCommerceProductsProductIdRoute: typeof AppCommerceProductsProductIdRoute
+  AppCommerceProductsNewRoute: typeof AppCommerceProductsNewRoute
+  AppCommerceProductsIndexRoute: typeof AppCommerceProductsIndexRoute
 }
 
 const AppRouteChildren: AppRouteChildren = {
   AppActivityRoute: AppActivityRoute,
   AppModulesRoute: AppModulesRoute,
   AppNotificationsRoute: AppNotificationsRoute,
+  AppReportsRoute: AppReportsRoute,
+  AppSettingsRoute: AppSettingsRoute,
   AppIndexRoute: AppIndexRoute,
+  AppCustomersCustomerIdRoute: AppCustomersCustomerIdRoute,
+  AppEventsEventIdRoute: AppEventsEventIdRoute,
   AppEventsListRoute: AppEventsListRoute,
+  AppEventsNewRoute: AppEventsNewRoute,
+  AppAutocareIndexRoute: AppAutocareIndexRoute,
   AppCommerceIndexRoute: AppCommerceIndexRoute,
+  AppCustomersIndexRoute: AppCustomersIndexRoute,
   AppEventsIndexRoute: AppEventsIndexRoute,
+  AppCommerceProductsProductIdRoute: AppCommerceProductsProductIdRoute,
+  AppCommerceProductsNewRoute: AppCommerceProductsNewRoute,
+  AppCommerceProductsIndexRoute: AppCommerceProductsIndexRoute,
 }
 
 const AppRouteWithChildren = AppRoute._addFileChildren(AppRouteChildren)
