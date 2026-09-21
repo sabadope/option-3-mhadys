@@ -13,6 +13,13 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AppRouteImport } from './routes/app'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as PricingRouteImport } from './routes/pricing'
+import { Route as AppIndexRouteImport } from './routes/app.index'
+import { Route as AppActivityRouteImport } from './routes/app.activity'
+import { Route as AppModulesRouteImport } from './routes/app.modules'
+import { Route as AppNotificationsRouteImport } from './routes/app.notifications'
+import { Route as AppCommerceIndexRouteImport } from './routes/app.commerce.index'
+import { Route as AppEventsIndexRouteImport } from './routes/app.events.index'
+import { Route as AppEventsListRouteImport } from './routes/app.events.list'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -34,37 +41,125 @@ const PricingRoute = PricingRouteImport.update({
   path: '/pricing',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AppIndexRoute = AppIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppActivityRoute = AppActivityRouteImport.update({
+  id: '/activity',
+  path: '/activity',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppModulesRoute = AppModulesRouteImport.update({
+  id: '/modules',
+  path: '/modules',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppNotificationsRoute = AppNotificationsRouteImport.update({
+  id: '/notifications',
+  path: '/notifications',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppCommerceIndexRoute = AppCommerceIndexRouteImport.update({
+  id: '/commerce/',
+  path: '/commerce/',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppEventsIndexRoute = AppEventsIndexRouteImport.update({
+  id: '/events/',
+  path: '/events/',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppEventsListRoute = AppEventsListRouteImport.update({
+  id: '/events/list',
+  path: '/events/list',
+  getParentRoute: () => AppRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/app': typeof AppRoute
+  '/app': typeof AppRouteWithChildren
   '/login': typeof LoginRoute
   '/pricing': typeof PricingRoute
+  '/app/activity': typeof AppActivityRoute
+  '/app/modules': typeof AppModulesRoute
+  '/app/notifications': typeof AppNotificationsRoute
+  '/app/': typeof AppIndexRoute
+  '/app/events/list': typeof AppEventsListRoute
+  '/app/commerce/': typeof AppCommerceIndexRoute
+  '/app/events/': typeof AppEventsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/app': typeof AppRoute
   '/login': typeof LoginRoute
   '/pricing': typeof PricingRoute
+  '/app/activity': typeof AppActivityRoute
+  '/app/modules': typeof AppModulesRoute
+  '/app/notifications': typeof AppNotificationsRoute
+  '/app': typeof AppIndexRoute
+  '/app/events/list': typeof AppEventsListRoute
+  '/app/commerce': typeof AppCommerceIndexRoute
+  '/app/events': typeof AppEventsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/app': typeof AppRoute
+  '/app': typeof AppRouteWithChildren
   '/login': typeof LoginRoute
   '/pricing': typeof PricingRoute
+  '/app/activity': typeof AppActivityRoute
+  '/app/modules': typeof AppModulesRoute
+  '/app/notifications': typeof AppNotificationsRoute
+  '/app/': typeof AppIndexRoute
+  '/app/events/list': typeof AppEventsListRoute
+  '/app/commerce/': typeof AppCommerceIndexRoute
+  '/app/events/': typeof AppEventsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/app' | '/login' | '/pricing'
+  fullPaths:
+    | '/'
+    | '/app'
+    | '/login'
+    | '/pricing'
+    | '/app/activity'
+    | '/app/modules'
+    | '/app/notifications'
+    | '/app/'
+    | '/app/events/list'
+    | '/app/commerce/'
+    | '/app/events/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/app' | '/login' | '/pricing'
-  id: '__root__' | '/' | '/app' | '/login' | '/pricing'
+  to:
+    | '/'
+    | '/login'
+    | '/pricing'
+    | '/app/activity'
+    | '/app/modules'
+    | '/app/notifications'
+    | '/app'
+    | '/app/events/list'
+    | '/app/commerce'
+    | '/app/events'
+  id:
+    | '__root__'
+    | '/'
+    | '/app'
+    | '/login'
+    | '/pricing'
+    | '/app/activity'
+    | '/app/modules'
+    | '/app/notifications'
+    | '/app/'
+    | '/app/events/list'
+    | '/app/commerce/'
+    | '/app/events/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AppRoute: typeof AppRoute
+  AppRoute: typeof AppRouteWithChildren
   LoginRoute: typeof LoginRoute
   PricingRoute: typeof PricingRoute
 }
@@ -99,12 +194,83 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PricingRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/app/': {
+      id: '/app/'
+      path: '/'
+      fullPath: '/app/'
+      preLoaderRoute: typeof AppIndexRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/activity': {
+      id: '/app/activity'
+      path: '/activity'
+      fullPath: '/app/activity'
+      preLoaderRoute: typeof AppActivityRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/modules': {
+      id: '/app/modules'
+      path: '/modules'
+      fullPath: '/app/modules'
+      preLoaderRoute: typeof AppModulesRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/notifications': {
+      id: '/app/notifications'
+      path: '/notifications'
+      fullPath: '/app/notifications'
+      preLoaderRoute: typeof AppNotificationsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/commerce/': {
+      id: '/app/commerce/'
+      path: '/commerce'
+      fullPath: '/app/commerce/'
+      preLoaderRoute: typeof AppCommerceIndexRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/events/': {
+      id: '/app/events/'
+      path: '/events'
+      fullPath: '/app/events/'
+      preLoaderRoute: typeof AppEventsIndexRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/events/list': {
+      id: '/app/events/list'
+      path: '/events/list'
+      fullPath: '/app/events/list'
+      preLoaderRoute: typeof AppEventsListRouteImport
+      parentRoute: typeof AppRoute
+    }
   }
 }
 
+interface AppRouteChildren {
+  AppActivityRoute: typeof AppActivityRoute
+  AppModulesRoute: typeof AppModulesRoute
+  AppNotificationsRoute: typeof AppNotificationsRoute
+  AppIndexRoute: typeof AppIndexRoute
+  AppEventsListRoute: typeof AppEventsListRoute
+  AppCommerceIndexRoute: typeof AppCommerceIndexRoute
+  AppEventsIndexRoute: typeof AppEventsIndexRoute
+}
+
+const AppRouteChildren: AppRouteChildren = {
+  AppActivityRoute: AppActivityRoute,
+  AppModulesRoute: AppModulesRoute,
+  AppNotificationsRoute: AppNotificationsRoute,
+  AppIndexRoute: AppIndexRoute,
+  AppEventsListRoute: AppEventsListRoute,
+  AppCommerceIndexRoute: AppCommerceIndexRoute,
+  AppEventsIndexRoute: AppEventsIndexRoute,
+}
+
+const AppRouteWithChildren = AppRoute._addFileChildren(AppRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AppRoute: AppRoute,
+  AppRoute: AppRouteWithChildren,
   LoginRoute: LoginRoute,
   PricingRoute: PricingRoute,
 }
