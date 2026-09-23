@@ -28,9 +28,9 @@ export function MetricCard({ label, value, delta, hint, icon, className, size = 
         <p className="eyebrow">{label}</p>
         {icon && <span className="text-muted-foreground [&_svg]:size-4">{icon}</span>}
       </div>
-      <div className="mt-3 flex items-end justify-between gap-4">
+      <div className="mt-3 flex flex-wrap items-end justify-between gap-x-4 gap-y-2">
         <div className="min-w-0">
-          <p className={cn("tabular truncate font-semibold tracking-tight", size === "lg" ? "text-4xl" : "text-[28px] leading-none")}>
+          <p className={cn("tabular font-semibold tracking-tight", size === "lg" ? "text-3xl sm:text-4xl" : "text-[28px] leading-none")}>
             {value}
           </p>
           {(delta !== undefined || hint) && (

@@ -19,14 +19,40 @@ import { Route as AppModulesRouteImport } from './routes/app.modules'
 import { Route as AppNotificationsRouteImport } from './routes/app.notifications'
 import { Route as AppReportsRouteImport } from './routes/app.reports'
 import { Route as AppSettingsRouteImport } from './routes/app.settings'
+import { Route as BookIndexRouteImport } from './routes/book.index'
+import { Route as BookEventIdRouteImport } from './routes/book.$eventId'
+import { Route as StoreIndexRouteImport } from './routes/store.index'
+import { Route as StoreSlugRouteImport } from './routes/store.$slug'
+import { Route as StoreCartRouteImport } from './routes/store.cart'
+import { Route as StoreCheckoutRouteImport } from './routes/store.checkout'
+import { Route as StoreConfirmationRouteImport } from './routes/store.confirmation'
 import { Route as AppAutocareIndexRouteImport } from './routes/app.autocare.index'
+import { Route as AppAutocareCalendarRouteImport } from './routes/app.autocare.calendar'
+import { Route as AppAutocareServicesRouteImport } from './routes/app.autocare.services'
 import { Route as AppCommerceIndexRouteImport } from './routes/app.commerce.index'
+import { Route as AppCommerceCategoriesRouteImport } from './routes/app.commerce.categories'
+import { Route as AppCommerceCustomersRouteImport } from './routes/app.commerce.customers'
+import { Route as AppCommerceDiscountsRouteImport } from './routes/app.commerce.discounts'
+import { Route as AppCommerceInventoryRouteImport } from './routes/app.commerce.inventory'
 import { Route as AppCustomersIndexRouteImport } from './routes/app.customers.index'
 import { Route as AppCustomersCustomerIdRouteImport } from './routes/app.customers.$customerId'
 import { Route as AppEventsIndexRouteImport } from './routes/app.events.index'
 import { Route as AppEventsEventIdRouteImport } from './routes/app.events.$eventId'
+import { Route as AppEventsAttendeesRouteImport } from './routes/app.events.attendees'
+import { Route as AppEventsBookingsRouteImport } from './routes/app.events.bookings'
+import { Route as AppEventsCalendarRouteImport } from './routes/app.events.calendar'
+import { Route as AppEventsCheckinRouteImport } from './routes/app.events.checkin'
 import { Route as AppEventsListRouteImport } from './routes/app.events.list'
 import { Route as AppEventsNewRouteImport } from './routes/app.events.new'
+import { Route as AppEventsTicketsRouteImport } from './routes/app.events.tickets'
+import { Route as AppAutocareAppointmentsIndexRouteImport } from './routes/app.autocare.appointments.index'
+import { Route as AppAutocareAppointmentsNewRouteImport } from './routes/app.autocare.appointments.new'
+import { Route as AppAutocareVehiclesIndexRouteImport } from './routes/app.autocare.vehicles.index'
+import { Route as AppAutocareVehiclesVehicleIdRouteImport } from './routes/app.autocare.vehicles.$vehicleId'
+import { Route as AppAutocareWorkOrdersIndexRouteImport } from './routes/app.autocare.work-orders.index'
+import { Route as AppAutocareWorkOrdersWorkOrderIdRouteImport } from './routes/app.autocare.work-orders.$workOrderId'
+import { Route as AppCommerceOrdersIndexRouteImport } from './routes/app.commerce.orders.index'
+import { Route as AppCommerceOrdersOrderIdRouteImport } from './routes/app.commerce.orders.$orderId'
 import { Route as AppCommerceProductsIndexRouteImport } from './routes/app.commerce.products.index'
 import { Route as AppCommerceProductsProductIdRouteImport } from './routes/app.commerce.products.$productId'
 import { Route as AppCommerceProductsNewRouteImport } from './routes/app.commerce.products.new'
@@ -81,14 +107,79 @@ const AppSettingsRoute = AppSettingsRouteImport.update({
   path: '/settings',
   getParentRoute: () => AppRoute,
 } as any)
+const BookIndexRoute = BookIndexRouteImport.update({
+  id: '/book/',
+  path: '/book/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BookEventIdRoute = BookEventIdRouteImport.update({
+  id: '/book/$eventId',
+  path: '/book/$eventId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StoreIndexRoute = StoreIndexRouteImport.update({
+  id: '/store/',
+  path: '/store/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StoreSlugRoute = StoreSlugRouteImport.update({
+  id: '/store/$slug',
+  path: '/store/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StoreCartRoute = StoreCartRouteImport.update({
+  id: '/store/cart',
+  path: '/store/cart',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StoreCheckoutRoute = StoreCheckoutRouteImport.update({
+  id: '/store/checkout',
+  path: '/store/checkout',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StoreConfirmationRoute = StoreConfirmationRouteImport.update({
+  id: '/store/confirmation',
+  path: '/store/confirmation',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AppAutocareIndexRoute = AppAutocareIndexRouteImport.update({
   id: '/autocare/',
   path: '/autocare/',
   getParentRoute: () => AppRoute,
 } as any)
+const AppAutocareCalendarRoute = AppAutocareCalendarRouteImport.update({
+  id: '/autocare/calendar',
+  path: '/autocare/calendar',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppAutocareServicesRoute = AppAutocareServicesRouteImport.update({
+  id: '/autocare/services',
+  path: '/autocare/services',
+  getParentRoute: () => AppRoute,
+} as any)
 const AppCommerceIndexRoute = AppCommerceIndexRouteImport.update({
   id: '/commerce/',
   path: '/commerce/',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppCommerceCategoriesRoute = AppCommerceCategoriesRouteImport.update({
+  id: '/commerce/categories',
+  path: '/commerce/categories',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppCommerceCustomersRoute = AppCommerceCustomersRouteImport.update({
+  id: '/commerce/customers',
+  path: '/commerce/customers',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppCommerceDiscountsRoute = AppCommerceDiscountsRouteImport.update({
+  id: '/commerce/discounts',
+  path: '/commerce/discounts',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppCommerceInventoryRoute = AppCommerceInventoryRouteImport.update({
+  id: '/commerce/inventory',
+  path: '/commerce/inventory',
   getParentRoute: () => AppRoute,
 } as any)
 const AppCustomersIndexRoute = AppCustomersIndexRouteImport.update({
@@ -111,6 +202,26 @@ const AppEventsEventIdRoute = AppEventsEventIdRouteImport.update({
   path: '/events/$eventId',
   getParentRoute: () => AppRoute,
 } as any)
+const AppEventsAttendeesRoute = AppEventsAttendeesRouteImport.update({
+  id: '/events/attendees',
+  path: '/events/attendees',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppEventsBookingsRoute = AppEventsBookingsRouteImport.update({
+  id: '/events/bookings',
+  path: '/events/bookings',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppEventsCalendarRoute = AppEventsCalendarRouteImport.update({
+  id: '/events/calendar',
+  path: '/events/calendar',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppEventsCheckinRoute = AppEventsCheckinRouteImport.update({
+  id: '/events/checkin',
+  path: '/events/checkin',
+  getParentRoute: () => AppRoute,
+} as any)
 const AppEventsListRoute = AppEventsListRouteImport.update({
   id: '/events/list',
   path: '/events/list',
@@ -121,6 +232,58 @@ const AppEventsNewRoute = AppEventsNewRouteImport.update({
   path: '/events/new',
   getParentRoute: () => AppRoute,
 } as any)
+const AppEventsTicketsRoute = AppEventsTicketsRouteImport.update({
+  id: '/events/tickets',
+  path: '/events/tickets',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppAutocareAppointmentsIndexRoute =
+  AppAutocareAppointmentsIndexRouteImport.update({
+    id: '/autocare/appointments/',
+    path: '/autocare/appointments/',
+    getParentRoute: () => AppRoute,
+  } as any)
+const AppAutocareAppointmentsNewRoute =
+  AppAutocareAppointmentsNewRouteImport.update({
+    id: '/autocare/appointments/new',
+    path: '/autocare/appointments/new',
+    getParentRoute: () => AppRoute,
+  } as any)
+const AppAutocareVehiclesIndexRoute =
+  AppAutocareVehiclesIndexRouteImport.update({
+    id: '/autocare/vehicles/',
+    path: '/autocare/vehicles/',
+    getParentRoute: () => AppRoute,
+  } as any)
+const AppAutocareVehiclesVehicleIdRoute =
+  AppAutocareVehiclesVehicleIdRouteImport.update({
+    id: '/autocare/vehicles/$vehicleId',
+    path: '/autocare/vehicles/$vehicleId',
+    getParentRoute: () => AppRoute,
+  } as any)
+const AppAutocareWorkOrdersIndexRoute =
+  AppAutocareWorkOrdersIndexRouteImport.update({
+    id: '/autocare/work-orders/',
+    path: '/autocare/work-orders/',
+    getParentRoute: () => AppRoute,
+  } as any)
+const AppAutocareWorkOrdersWorkOrderIdRoute =
+  AppAutocareWorkOrdersWorkOrderIdRouteImport.update({
+    id: '/autocare/work-orders/$workOrderId',
+    path: '/autocare/work-orders/$workOrderId',
+    getParentRoute: () => AppRoute,
+  } as any)
+const AppCommerceOrdersIndexRoute = AppCommerceOrdersIndexRouteImport.update({
+  id: '/commerce/orders/',
+  path: '/commerce/orders/',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppCommerceOrdersOrderIdRoute =
+  AppCommerceOrdersOrderIdRouteImport.update({
+    id: '/commerce/orders/$orderId',
+    path: '/commerce/orders/$orderId',
+    getParentRoute: () => AppRoute,
+  } as any)
 const AppCommerceProductsIndexRoute =
   AppCommerceProductsIndexRouteImport.update({
     id: '/commerce/products/',
@@ -149,17 +312,43 @@ export interface FileRoutesByFullPath {
   '/app/notifications': typeof AppNotificationsRoute
   '/app/reports': typeof AppReportsRoute
   '/app/settings': typeof AppSettingsRoute
+  '/book/$eventId': typeof BookEventIdRoute
+  '/store/$slug': typeof StoreSlugRoute
+  '/store/cart': typeof StoreCartRoute
+  '/store/checkout': typeof StoreCheckoutRoute
+  '/store/confirmation': typeof StoreConfirmationRoute
   '/app/': typeof AppIndexRoute
+  '/book/': typeof BookIndexRoute
+  '/store/': typeof StoreIndexRoute
+  '/app/autocare/calendar': typeof AppAutocareCalendarRoute
+  '/app/autocare/services': typeof AppAutocareServicesRoute
+  '/app/commerce/categories': typeof AppCommerceCategoriesRoute
+  '/app/commerce/customers': typeof AppCommerceCustomersRoute
+  '/app/commerce/discounts': typeof AppCommerceDiscountsRoute
+  '/app/commerce/inventory': typeof AppCommerceInventoryRoute
   '/app/customers/$customerId': typeof AppCustomersCustomerIdRoute
   '/app/events/$eventId': typeof AppEventsEventIdRoute
+  '/app/events/attendees': typeof AppEventsAttendeesRoute
+  '/app/events/bookings': typeof AppEventsBookingsRoute
+  '/app/events/calendar': typeof AppEventsCalendarRoute
+  '/app/events/checkin': typeof AppEventsCheckinRoute
   '/app/events/list': typeof AppEventsListRoute
   '/app/events/new': typeof AppEventsNewRoute
+  '/app/events/tickets': typeof AppEventsTicketsRoute
   '/app/autocare/': typeof AppAutocareIndexRoute
   '/app/commerce/': typeof AppCommerceIndexRoute
   '/app/customers/': typeof AppCustomersIndexRoute
   '/app/events/': typeof AppEventsIndexRoute
+  '/app/autocare/appointments/new': typeof AppAutocareAppointmentsNewRoute
+  '/app/autocare/vehicles/$vehicleId': typeof AppAutocareVehiclesVehicleIdRoute
+  '/app/autocare/work-orders/$workOrderId': typeof AppAutocareWorkOrdersWorkOrderIdRoute
+  '/app/commerce/orders/$orderId': typeof AppCommerceOrdersOrderIdRoute
   '/app/commerce/products/$productId': typeof AppCommerceProductsProductIdRoute
   '/app/commerce/products/new': typeof AppCommerceProductsNewRoute
+  '/app/autocare/appointments/': typeof AppAutocareAppointmentsIndexRoute
+  '/app/autocare/vehicles/': typeof AppAutocareVehiclesIndexRoute
+  '/app/autocare/work-orders/': typeof AppAutocareWorkOrdersIndexRoute
+  '/app/commerce/orders/': typeof AppCommerceOrdersIndexRoute
   '/app/commerce/products/': typeof AppCommerceProductsIndexRoute
 }
 export interface FileRoutesByTo {
@@ -171,17 +360,43 @@ export interface FileRoutesByTo {
   '/app/notifications': typeof AppNotificationsRoute
   '/app/reports': typeof AppReportsRoute
   '/app/settings': typeof AppSettingsRoute
+  '/book/$eventId': typeof BookEventIdRoute
+  '/store/$slug': typeof StoreSlugRoute
+  '/store/cart': typeof StoreCartRoute
+  '/store/checkout': typeof StoreCheckoutRoute
+  '/store/confirmation': typeof StoreConfirmationRoute
   '/app': typeof AppIndexRoute
+  '/book': typeof BookIndexRoute
+  '/store': typeof StoreIndexRoute
+  '/app/autocare/calendar': typeof AppAutocareCalendarRoute
+  '/app/autocare/services': typeof AppAutocareServicesRoute
+  '/app/commerce/categories': typeof AppCommerceCategoriesRoute
+  '/app/commerce/customers': typeof AppCommerceCustomersRoute
+  '/app/commerce/discounts': typeof AppCommerceDiscountsRoute
+  '/app/commerce/inventory': typeof AppCommerceInventoryRoute
   '/app/customers/$customerId': typeof AppCustomersCustomerIdRoute
   '/app/events/$eventId': typeof AppEventsEventIdRoute
+  '/app/events/attendees': typeof AppEventsAttendeesRoute
+  '/app/events/bookings': typeof AppEventsBookingsRoute
+  '/app/events/calendar': typeof AppEventsCalendarRoute
+  '/app/events/checkin': typeof AppEventsCheckinRoute
   '/app/events/list': typeof AppEventsListRoute
   '/app/events/new': typeof AppEventsNewRoute
+  '/app/events/tickets': typeof AppEventsTicketsRoute
   '/app/autocare': typeof AppAutocareIndexRoute
   '/app/commerce': typeof AppCommerceIndexRoute
   '/app/customers': typeof AppCustomersIndexRoute
   '/app/events': typeof AppEventsIndexRoute
+  '/app/autocare/appointments/new': typeof AppAutocareAppointmentsNewRoute
+  '/app/autocare/vehicles/$vehicleId': typeof AppAutocareVehiclesVehicleIdRoute
+  '/app/autocare/work-orders/$workOrderId': typeof AppAutocareWorkOrdersWorkOrderIdRoute
+  '/app/commerce/orders/$orderId': typeof AppCommerceOrdersOrderIdRoute
   '/app/commerce/products/$productId': typeof AppCommerceProductsProductIdRoute
   '/app/commerce/products/new': typeof AppCommerceProductsNewRoute
+  '/app/autocare/appointments': typeof AppAutocareAppointmentsIndexRoute
+  '/app/autocare/vehicles': typeof AppAutocareVehiclesIndexRoute
+  '/app/autocare/work-orders': typeof AppAutocareWorkOrdersIndexRoute
+  '/app/commerce/orders': typeof AppCommerceOrdersIndexRoute
   '/app/commerce/products': typeof AppCommerceProductsIndexRoute
 }
 export interface FileRoutesById {
@@ -195,17 +410,43 @@ export interface FileRoutesById {
   '/app/notifications': typeof AppNotificationsRoute
   '/app/reports': typeof AppReportsRoute
   '/app/settings': typeof AppSettingsRoute
+  '/book/$eventId': typeof BookEventIdRoute
+  '/store/$slug': typeof StoreSlugRoute
+  '/store/cart': typeof StoreCartRoute
+  '/store/checkout': typeof StoreCheckoutRoute
+  '/store/confirmation': typeof StoreConfirmationRoute
   '/app/': typeof AppIndexRoute
+  '/book/': typeof BookIndexRoute
+  '/store/': typeof StoreIndexRoute
+  '/app/autocare/calendar': typeof AppAutocareCalendarRoute
+  '/app/autocare/services': typeof AppAutocareServicesRoute
+  '/app/commerce/categories': typeof AppCommerceCategoriesRoute
+  '/app/commerce/customers': typeof AppCommerceCustomersRoute
+  '/app/commerce/discounts': typeof AppCommerceDiscountsRoute
+  '/app/commerce/inventory': typeof AppCommerceInventoryRoute
   '/app/customers/$customerId': typeof AppCustomersCustomerIdRoute
   '/app/events/$eventId': typeof AppEventsEventIdRoute
+  '/app/events/attendees': typeof AppEventsAttendeesRoute
+  '/app/events/bookings': typeof AppEventsBookingsRoute
+  '/app/events/calendar': typeof AppEventsCalendarRoute
+  '/app/events/checkin': typeof AppEventsCheckinRoute
   '/app/events/list': typeof AppEventsListRoute
   '/app/events/new': typeof AppEventsNewRoute
+  '/app/events/tickets': typeof AppEventsTicketsRoute
   '/app/autocare/': typeof AppAutocareIndexRoute
   '/app/commerce/': typeof AppCommerceIndexRoute
   '/app/customers/': typeof AppCustomersIndexRoute
   '/app/events/': typeof AppEventsIndexRoute
+  '/app/autocare/appointments/new': typeof AppAutocareAppointmentsNewRoute
+  '/app/autocare/vehicles/$vehicleId': typeof AppAutocareVehiclesVehicleIdRoute
+  '/app/autocare/work-orders/$workOrderId': typeof AppAutocareWorkOrdersWorkOrderIdRoute
+  '/app/commerce/orders/$orderId': typeof AppCommerceOrdersOrderIdRoute
   '/app/commerce/products/$productId': typeof AppCommerceProductsProductIdRoute
   '/app/commerce/products/new': typeof AppCommerceProductsNewRoute
+  '/app/autocare/appointments/': typeof AppAutocareAppointmentsIndexRoute
+  '/app/autocare/vehicles/': typeof AppAutocareVehiclesIndexRoute
+  '/app/autocare/work-orders/': typeof AppAutocareWorkOrdersIndexRoute
+  '/app/commerce/orders/': typeof AppCommerceOrdersIndexRoute
   '/app/commerce/products/': typeof AppCommerceProductsIndexRoute
 }
 export interface FileRouteTypes {
@@ -220,17 +461,43 @@ export interface FileRouteTypes {
     | '/app/notifications'
     | '/app/reports'
     | '/app/settings'
+    | '/book/$eventId'
+    | '/store/$slug'
+    | '/store/cart'
+    | '/store/checkout'
+    | '/store/confirmation'
     | '/app/'
+    | '/book/'
+    | '/store/'
+    | '/app/autocare/calendar'
+    | '/app/autocare/services'
+    | '/app/commerce/categories'
+    | '/app/commerce/customers'
+    | '/app/commerce/discounts'
+    | '/app/commerce/inventory'
     | '/app/customers/$customerId'
     | '/app/events/$eventId'
+    | '/app/events/attendees'
+    | '/app/events/bookings'
+    | '/app/events/calendar'
+    | '/app/events/checkin'
     | '/app/events/list'
     | '/app/events/new'
+    | '/app/events/tickets'
     | '/app/autocare/'
     | '/app/commerce/'
     | '/app/customers/'
     | '/app/events/'
+    | '/app/autocare/appointments/new'
+    | '/app/autocare/vehicles/$vehicleId'
+    | '/app/autocare/work-orders/$workOrderId'
+    | '/app/commerce/orders/$orderId'
     | '/app/commerce/products/$productId'
     | '/app/commerce/products/new'
+    | '/app/autocare/appointments/'
+    | '/app/autocare/vehicles/'
+    | '/app/autocare/work-orders/'
+    | '/app/commerce/orders/'
     | '/app/commerce/products/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -242,17 +509,43 @@ export interface FileRouteTypes {
     | '/app/notifications'
     | '/app/reports'
     | '/app/settings'
+    | '/book/$eventId'
+    | '/store/$slug'
+    | '/store/cart'
+    | '/store/checkout'
+    | '/store/confirmation'
     | '/app'
+    | '/book'
+    | '/store'
+    | '/app/autocare/calendar'
+    | '/app/autocare/services'
+    | '/app/commerce/categories'
+    | '/app/commerce/customers'
+    | '/app/commerce/discounts'
+    | '/app/commerce/inventory'
     | '/app/customers/$customerId'
     | '/app/events/$eventId'
+    | '/app/events/attendees'
+    | '/app/events/bookings'
+    | '/app/events/calendar'
+    | '/app/events/checkin'
     | '/app/events/list'
     | '/app/events/new'
+    | '/app/events/tickets'
     | '/app/autocare'
     | '/app/commerce'
     | '/app/customers'
     | '/app/events'
+    | '/app/autocare/appointments/new'
+    | '/app/autocare/vehicles/$vehicleId'
+    | '/app/autocare/work-orders/$workOrderId'
+    | '/app/commerce/orders/$orderId'
     | '/app/commerce/products/$productId'
     | '/app/commerce/products/new'
+    | '/app/autocare/appointments'
+    | '/app/autocare/vehicles'
+    | '/app/autocare/work-orders'
+    | '/app/commerce/orders'
     | '/app/commerce/products'
   id:
     | '__root__'
@@ -265,17 +558,43 @@ export interface FileRouteTypes {
     | '/app/notifications'
     | '/app/reports'
     | '/app/settings'
+    | '/book/$eventId'
+    | '/store/$slug'
+    | '/store/cart'
+    | '/store/checkout'
+    | '/store/confirmation'
     | '/app/'
+    | '/book/'
+    | '/store/'
+    | '/app/autocare/calendar'
+    | '/app/autocare/services'
+    | '/app/commerce/categories'
+    | '/app/commerce/customers'
+    | '/app/commerce/discounts'
+    | '/app/commerce/inventory'
     | '/app/customers/$customerId'
     | '/app/events/$eventId'
+    | '/app/events/attendees'
+    | '/app/events/bookings'
+    | '/app/events/calendar'
+    | '/app/events/checkin'
     | '/app/events/list'
     | '/app/events/new'
+    | '/app/events/tickets'
     | '/app/autocare/'
     | '/app/commerce/'
     | '/app/customers/'
     | '/app/events/'
+    | '/app/autocare/appointments/new'
+    | '/app/autocare/vehicles/$vehicleId'
+    | '/app/autocare/work-orders/$workOrderId'
+    | '/app/commerce/orders/$orderId'
     | '/app/commerce/products/$productId'
     | '/app/commerce/products/new'
+    | '/app/autocare/appointments/'
+    | '/app/autocare/vehicles/'
+    | '/app/autocare/work-orders/'
+    | '/app/commerce/orders/'
     | '/app/commerce/products/'
   fileRoutesById: FileRoutesById
 }
@@ -284,6 +603,13 @@ export interface RootRouteChildren {
   AppRoute: typeof AppRouteWithChildren
   LoginRoute: typeof LoginRoute
   PricingRoute: typeof PricingRoute
+  BookEventIdRoute: typeof BookEventIdRoute
+  StoreSlugRoute: typeof StoreSlugRoute
+  StoreCartRoute: typeof StoreCartRoute
+  StoreCheckoutRoute: typeof StoreCheckoutRoute
+  StoreConfirmationRoute: typeof StoreConfirmationRoute
+  BookIndexRoute: typeof BookIndexRoute
+  StoreIndexRoute: typeof StoreIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -358,6 +684,55 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppSettingsRouteImport
       parentRoute: typeof AppRoute
     }
+    '/book/': {
+      id: '/book/'
+      path: '/book'
+      fullPath: '/book/'
+      preLoaderRoute: typeof BookIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/book/$eventId': {
+      id: '/book/$eventId'
+      path: '/book/$eventId'
+      fullPath: '/book/$eventId'
+      preLoaderRoute: typeof BookEventIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/store/': {
+      id: '/store/'
+      path: '/store'
+      fullPath: '/store/'
+      preLoaderRoute: typeof StoreIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/store/$slug': {
+      id: '/store/$slug'
+      path: '/store/$slug'
+      fullPath: '/store/$slug'
+      preLoaderRoute: typeof StoreSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/store/cart': {
+      id: '/store/cart'
+      path: '/store/cart'
+      fullPath: '/store/cart'
+      preLoaderRoute: typeof StoreCartRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/store/checkout': {
+      id: '/store/checkout'
+      path: '/store/checkout'
+      fullPath: '/store/checkout'
+      preLoaderRoute: typeof StoreCheckoutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/store/confirmation': {
+      id: '/store/confirmation'
+      path: '/store/confirmation'
+      fullPath: '/store/confirmation'
+      preLoaderRoute: typeof StoreConfirmationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/app/autocare/': {
       id: '/app/autocare/'
       path: '/autocare'
@@ -365,11 +740,53 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppAutocareIndexRouteImport
       parentRoute: typeof AppRoute
     }
+    '/app/autocare/calendar': {
+      id: '/app/autocare/calendar'
+      path: '/autocare/calendar'
+      fullPath: '/app/autocare/calendar'
+      preLoaderRoute: typeof AppAutocareCalendarRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/autocare/services': {
+      id: '/app/autocare/services'
+      path: '/autocare/services'
+      fullPath: '/app/autocare/services'
+      preLoaderRoute: typeof AppAutocareServicesRouteImport
+      parentRoute: typeof AppRoute
+    }
     '/app/commerce/': {
       id: '/app/commerce/'
       path: '/commerce'
       fullPath: '/app/commerce/'
       preLoaderRoute: typeof AppCommerceIndexRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/commerce/categories': {
+      id: '/app/commerce/categories'
+      path: '/commerce/categories'
+      fullPath: '/app/commerce/categories'
+      preLoaderRoute: typeof AppCommerceCategoriesRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/commerce/customers': {
+      id: '/app/commerce/customers'
+      path: '/commerce/customers'
+      fullPath: '/app/commerce/customers'
+      preLoaderRoute: typeof AppCommerceCustomersRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/commerce/discounts': {
+      id: '/app/commerce/discounts'
+      path: '/commerce/discounts'
+      fullPath: '/app/commerce/discounts'
+      preLoaderRoute: typeof AppCommerceDiscountsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/commerce/inventory': {
+      id: '/app/commerce/inventory'
+      path: '/commerce/inventory'
+      fullPath: '/app/commerce/inventory'
+      preLoaderRoute: typeof AppCommerceInventoryRouteImport
       parentRoute: typeof AppRoute
     }
     '/app/customers/': {
@@ -400,6 +817,34 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppEventsEventIdRouteImport
       parentRoute: typeof AppRoute
     }
+    '/app/events/attendees': {
+      id: '/app/events/attendees'
+      path: '/events/attendees'
+      fullPath: '/app/events/attendees'
+      preLoaderRoute: typeof AppEventsAttendeesRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/events/bookings': {
+      id: '/app/events/bookings'
+      path: '/events/bookings'
+      fullPath: '/app/events/bookings'
+      preLoaderRoute: typeof AppEventsBookingsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/events/calendar': {
+      id: '/app/events/calendar'
+      path: '/events/calendar'
+      fullPath: '/app/events/calendar'
+      preLoaderRoute: typeof AppEventsCalendarRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/events/checkin': {
+      id: '/app/events/checkin'
+      path: '/events/checkin'
+      fullPath: '/app/events/checkin'
+      preLoaderRoute: typeof AppEventsCheckinRouteImport
+      parentRoute: typeof AppRoute
+    }
     '/app/events/list': {
       id: '/app/events/list'
       path: '/events/list'
@@ -412,6 +857,69 @@ declare module '@tanstack/react-router' {
       path: '/events/new'
       fullPath: '/app/events/new'
       preLoaderRoute: typeof AppEventsNewRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/events/tickets': {
+      id: '/app/events/tickets'
+      path: '/events/tickets'
+      fullPath: '/app/events/tickets'
+      preLoaderRoute: typeof AppEventsTicketsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/autocare/appointments/': {
+      id: '/app/autocare/appointments/'
+      path: '/autocare/appointments'
+      fullPath: '/app/autocare/appointments/'
+      preLoaderRoute: typeof AppAutocareAppointmentsIndexRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/autocare/appointments/new': {
+      id: '/app/autocare/appointments/new'
+      path: '/autocare/appointments/new'
+      fullPath: '/app/autocare/appointments/new'
+      preLoaderRoute: typeof AppAutocareAppointmentsNewRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/autocare/vehicles/': {
+      id: '/app/autocare/vehicles/'
+      path: '/autocare/vehicles'
+      fullPath: '/app/autocare/vehicles/'
+      preLoaderRoute: typeof AppAutocareVehiclesIndexRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/autocare/vehicles/$vehicleId': {
+      id: '/app/autocare/vehicles/$vehicleId'
+      path: '/autocare/vehicles/$vehicleId'
+      fullPath: '/app/autocare/vehicles/$vehicleId'
+      preLoaderRoute: typeof AppAutocareVehiclesVehicleIdRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/autocare/work-orders/': {
+      id: '/app/autocare/work-orders/'
+      path: '/autocare/work-orders'
+      fullPath: '/app/autocare/work-orders/'
+      preLoaderRoute: typeof AppAutocareWorkOrdersIndexRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/autocare/work-orders/$workOrderId': {
+      id: '/app/autocare/work-orders/$workOrderId'
+      path: '/autocare/work-orders/$workOrderId'
+      fullPath: '/app/autocare/work-orders/$workOrderId'
+      preLoaderRoute: typeof AppAutocareWorkOrdersWorkOrderIdRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/commerce/orders/': {
+      id: '/app/commerce/orders/'
+      path: '/commerce/orders'
+      fullPath: '/app/commerce/orders/'
+      preLoaderRoute: typeof AppCommerceOrdersIndexRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/commerce/orders/$orderId': {
+      id: '/app/commerce/orders/$orderId'
+      path: '/commerce/orders/$orderId'
+      fullPath: '/app/commerce/orders/$orderId'
+      preLoaderRoute: typeof AppCommerceOrdersOrderIdRouteImport
       parentRoute: typeof AppRoute
     }
     '/app/commerce/products/': {
@@ -445,16 +953,35 @@ interface AppRouteChildren {
   AppReportsRoute: typeof AppReportsRoute
   AppSettingsRoute: typeof AppSettingsRoute
   AppIndexRoute: typeof AppIndexRoute
+  AppAutocareCalendarRoute: typeof AppAutocareCalendarRoute
+  AppAutocareServicesRoute: typeof AppAutocareServicesRoute
+  AppCommerceCategoriesRoute: typeof AppCommerceCategoriesRoute
+  AppCommerceCustomersRoute: typeof AppCommerceCustomersRoute
+  AppCommerceDiscountsRoute: typeof AppCommerceDiscountsRoute
+  AppCommerceInventoryRoute: typeof AppCommerceInventoryRoute
   AppCustomersCustomerIdRoute: typeof AppCustomersCustomerIdRoute
   AppEventsEventIdRoute: typeof AppEventsEventIdRoute
+  AppEventsAttendeesRoute: typeof AppEventsAttendeesRoute
+  AppEventsBookingsRoute: typeof AppEventsBookingsRoute
+  AppEventsCalendarRoute: typeof AppEventsCalendarRoute
+  AppEventsCheckinRoute: typeof AppEventsCheckinRoute
   AppEventsListRoute: typeof AppEventsListRoute
   AppEventsNewRoute: typeof AppEventsNewRoute
+  AppEventsTicketsRoute: typeof AppEventsTicketsRoute
   AppAutocareIndexRoute: typeof AppAutocareIndexRoute
   AppCommerceIndexRoute: typeof AppCommerceIndexRoute
   AppCustomersIndexRoute: typeof AppCustomersIndexRoute
   AppEventsIndexRoute: typeof AppEventsIndexRoute
+  AppAutocareAppointmentsNewRoute: typeof AppAutocareAppointmentsNewRoute
+  AppAutocareVehiclesVehicleIdRoute: typeof AppAutocareVehiclesVehicleIdRoute
+  AppAutocareWorkOrdersWorkOrderIdRoute: typeof AppAutocareWorkOrdersWorkOrderIdRoute
+  AppCommerceOrdersOrderIdRoute: typeof AppCommerceOrdersOrderIdRoute
   AppCommerceProductsProductIdRoute: typeof AppCommerceProductsProductIdRoute
   AppCommerceProductsNewRoute: typeof AppCommerceProductsNewRoute
+  AppAutocareAppointmentsIndexRoute: typeof AppAutocareAppointmentsIndexRoute
+  AppAutocareVehiclesIndexRoute: typeof AppAutocareVehiclesIndexRoute
+  AppAutocareWorkOrdersIndexRoute: typeof AppAutocareWorkOrdersIndexRoute
+  AppCommerceOrdersIndexRoute: typeof AppCommerceOrdersIndexRoute
   AppCommerceProductsIndexRoute: typeof AppCommerceProductsIndexRoute
 }
 
@@ -465,16 +992,35 @@ const AppRouteChildren: AppRouteChildren = {
   AppReportsRoute: AppReportsRoute,
   AppSettingsRoute: AppSettingsRoute,
   AppIndexRoute: AppIndexRoute,
+  AppAutocareCalendarRoute: AppAutocareCalendarRoute,
+  AppAutocareServicesRoute: AppAutocareServicesRoute,
+  AppCommerceCategoriesRoute: AppCommerceCategoriesRoute,
+  AppCommerceCustomersRoute: AppCommerceCustomersRoute,
+  AppCommerceDiscountsRoute: AppCommerceDiscountsRoute,
+  AppCommerceInventoryRoute: AppCommerceInventoryRoute,
   AppCustomersCustomerIdRoute: AppCustomersCustomerIdRoute,
   AppEventsEventIdRoute: AppEventsEventIdRoute,
+  AppEventsAttendeesRoute: AppEventsAttendeesRoute,
+  AppEventsBookingsRoute: AppEventsBookingsRoute,
+  AppEventsCalendarRoute: AppEventsCalendarRoute,
+  AppEventsCheckinRoute: AppEventsCheckinRoute,
   AppEventsListRoute: AppEventsListRoute,
   AppEventsNewRoute: AppEventsNewRoute,
+  AppEventsTicketsRoute: AppEventsTicketsRoute,
   AppAutocareIndexRoute: AppAutocareIndexRoute,
   AppCommerceIndexRoute: AppCommerceIndexRoute,
   AppCustomersIndexRoute: AppCustomersIndexRoute,
   AppEventsIndexRoute: AppEventsIndexRoute,
+  AppAutocareAppointmentsNewRoute: AppAutocareAppointmentsNewRoute,
+  AppAutocareVehiclesVehicleIdRoute: AppAutocareVehiclesVehicleIdRoute,
+  AppAutocareWorkOrdersWorkOrderIdRoute: AppAutocareWorkOrdersWorkOrderIdRoute,
+  AppCommerceOrdersOrderIdRoute: AppCommerceOrdersOrderIdRoute,
   AppCommerceProductsProductIdRoute: AppCommerceProductsProductIdRoute,
   AppCommerceProductsNewRoute: AppCommerceProductsNewRoute,
+  AppAutocareAppointmentsIndexRoute: AppAutocareAppointmentsIndexRoute,
+  AppAutocareVehiclesIndexRoute: AppAutocareVehiclesIndexRoute,
+  AppAutocareWorkOrdersIndexRoute: AppAutocareWorkOrdersIndexRoute,
+  AppCommerceOrdersIndexRoute: AppCommerceOrdersIndexRoute,
   AppCommerceProductsIndexRoute: AppCommerceProductsIndexRoute,
 }
 
@@ -485,6 +1031,13 @@ const rootRouteChildren: RootRouteChildren = {
   AppRoute: AppRouteWithChildren,
   LoginRoute: LoginRoute,
   PricingRoute: PricingRoute,
+  BookEventIdRoute: BookEventIdRoute,
+  StoreSlugRoute: StoreSlugRoute,
+  StoreCartRoute: StoreCartRoute,
+  StoreCheckoutRoute: StoreCheckoutRoute,
+  StoreConfirmationRoute: StoreConfirmationRoute,
+  BookIndexRoute: BookIndexRoute,
+  StoreIndexRoute: StoreIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
