@@ -27,8 +27,12 @@ import { Route as StoreCartRouteImport } from './routes/store.cart'
 import { Route as StoreCheckoutRouteImport } from './routes/store.checkout'
 import { Route as StoreConfirmationRouteImport } from './routes/store.confirmation'
 import { Route as AppAutocareIndexRouteImport } from './routes/app.autocare.index'
+import { Route as AppAutocareBaysRouteImport } from './routes/app.autocare.bays'
 import { Route as AppAutocareCalendarRouteImport } from './routes/app.autocare.calendar'
+import { Route as AppAutocareCustomersRouteImport } from './routes/app.autocare.customers'
+import { Route as AppAutocarePaymentsRouteImport } from './routes/app.autocare.payments'
 import { Route as AppAutocareServicesRouteImport } from './routes/app.autocare.services'
+import { Route as AppAutocareStaffRouteImport } from './routes/app.autocare.staff'
 import { Route as AppCommerceIndexRouteImport } from './routes/app.commerce.index'
 import { Route as AppCommerceCategoriesRouteImport } from './routes/app.commerce.categories'
 import { Route as AppCommerceCustomersRouteImport } from './routes/app.commerce.customers'
@@ -147,14 +151,34 @@ const AppAutocareIndexRoute = AppAutocareIndexRouteImport.update({
   path: '/autocare/',
   getParentRoute: () => AppRoute,
 } as any)
+const AppAutocareBaysRoute = AppAutocareBaysRouteImport.update({
+  id: '/autocare/bays',
+  path: '/autocare/bays',
+  getParentRoute: () => AppRoute,
+} as any)
 const AppAutocareCalendarRoute = AppAutocareCalendarRouteImport.update({
   id: '/autocare/calendar',
   path: '/autocare/calendar',
   getParentRoute: () => AppRoute,
 } as any)
+const AppAutocareCustomersRoute = AppAutocareCustomersRouteImport.update({
+  id: '/autocare/customers',
+  path: '/autocare/customers',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppAutocarePaymentsRoute = AppAutocarePaymentsRouteImport.update({
+  id: '/autocare/payments',
+  path: '/autocare/payments',
+  getParentRoute: () => AppRoute,
+} as any)
 const AppAutocareServicesRoute = AppAutocareServicesRouteImport.update({
   id: '/autocare/services',
   path: '/autocare/services',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppAutocareStaffRoute = AppAutocareStaffRouteImport.update({
+  id: '/autocare/staff',
+  path: '/autocare/staff',
   getParentRoute: () => AppRoute,
 } as any)
 const AppCommerceIndexRoute = AppCommerceIndexRouteImport.update({
@@ -320,8 +344,12 @@ export interface FileRoutesByFullPath {
   '/app/': typeof AppIndexRoute
   '/book/': typeof BookIndexRoute
   '/store/': typeof StoreIndexRoute
+  '/app/autocare/bays': typeof AppAutocareBaysRoute
   '/app/autocare/calendar': typeof AppAutocareCalendarRoute
+  '/app/autocare/customers': typeof AppAutocareCustomersRoute
+  '/app/autocare/payments': typeof AppAutocarePaymentsRoute
   '/app/autocare/services': typeof AppAutocareServicesRoute
+  '/app/autocare/staff': typeof AppAutocareStaffRoute
   '/app/commerce/categories': typeof AppCommerceCategoriesRoute
   '/app/commerce/customers': typeof AppCommerceCustomersRoute
   '/app/commerce/discounts': typeof AppCommerceDiscountsRoute
@@ -368,8 +396,12 @@ export interface FileRoutesByTo {
   '/app': typeof AppIndexRoute
   '/book': typeof BookIndexRoute
   '/store': typeof StoreIndexRoute
+  '/app/autocare/bays': typeof AppAutocareBaysRoute
   '/app/autocare/calendar': typeof AppAutocareCalendarRoute
+  '/app/autocare/customers': typeof AppAutocareCustomersRoute
+  '/app/autocare/payments': typeof AppAutocarePaymentsRoute
   '/app/autocare/services': typeof AppAutocareServicesRoute
+  '/app/autocare/staff': typeof AppAutocareStaffRoute
   '/app/commerce/categories': typeof AppCommerceCategoriesRoute
   '/app/commerce/customers': typeof AppCommerceCustomersRoute
   '/app/commerce/discounts': typeof AppCommerceDiscountsRoute
@@ -418,8 +450,12 @@ export interface FileRoutesById {
   '/app/': typeof AppIndexRoute
   '/book/': typeof BookIndexRoute
   '/store/': typeof StoreIndexRoute
+  '/app/autocare/bays': typeof AppAutocareBaysRoute
   '/app/autocare/calendar': typeof AppAutocareCalendarRoute
+  '/app/autocare/customers': typeof AppAutocareCustomersRoute
+  '/app/autocare/payments': typeof AppAutocarePaymentsRoute
   '/app/autocare/services': typeof AppAutocareServicesRoute
+  '/app/autocare/staff': typeof AppAutocareStaffRoute
   '/app/commerce/categories': typeof AppCommerceCategoriesRoute
   '/app/commerce/customers': typeof AppCommerceCustomersRoute
   '/app/commerce/discounts': typeof AppCommerceDiscountsRoute
@@ -469,8 +505,12 @@ export interface FileRouteTypes {
     | '/app/'
     | '/book/'
     | '/store/'
+    | '/app/autocare/bays'
     | '/app/autocare/calendar'
+    | '/app/autocare/customers'
+    | '/app/autocare/payments'
     | '/app/autocare/services'
+    | '/app/autocare/staff'
     | '/app/commerce/categories'
     | '/app/commerce/customers'
     | '/app/commerce/discounts'
@@ -517,8 +557,12 @@ export interface FileRouteTypes {
     | '/app'
     | '/book'
     | '/store'
+    | '/app/autocare/bays'
     | '/app/autocare/calendar'
+    | '/app/autocare/customers'
+    | '/app/autocare/payments'
     | '/app/autocare/services'
+    | '/app/autocare/staff'
     | '/app/commerce/categories'
     | '/app/commerce/customers'
     | '/app/commerce/discounts'
@@ -566,8 +610,12 @@ export interface FileRouteTypes {
     | '/app/'
     | '/book/'
     | '/store/'
+    | '/app/autocare/bays'
     | '/app/autocare/calendar'
+    | '/app/autocare/customers'
+    | '/app/autocare/payments'
     | '/app/autocare/services'
+    | '/app/autocare/staff'
     | '/app/commerce/categories'
     | '/app/commerce/customers'
     | '/app/commerce/discounts'
@@ -740,6 +788,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppAutocareIndexRouteImport
       parentRoute: typeof AppRoute
     }
+    '/app/autocare/bays': {
+      id: '/app/autocare/bays'
+      path: '/autocare/bays'
+      fullPath: '/app/autocare/bays'
+      preLoaderRoute: typeof AppAutocareBaysRouteImport
+      parentRoute: typeof AppRoute
+    }
     '/app/autocare/calendar': {
       id: '/app/autocare/calendar'
       path: '/autocare/calendar'
@@ -747,11 +802,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppAutocareCalendarRouteImport
       parentRoute: typeof AppRoute
     }
+    '/app/autocare/customers': {
+      id: '/app/autocare/customers'
+      path: '/autocare/customers'
+      fullPath: '/app/autocare/customers'
+      preLoaderRoute: typeof AppAutocareCustomersRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/autocare/payments': {
+      id: '/app/autocare/payments'
+      path: '/autocare/payments'
+      fullPath: '/app/autocare/payments'
+      preLoaderRoute: typeof AppAutocarePaymentsRouteImport
+      parentRoute: typeof AppRoute
+    }
     '/app/autocare/services': {
       id: '/app/autocare/services'
       path: '/autocare/services'
       fullPath: '/app/autocare/services'
       preLoaderRoute: typeof AppAutocareServicesRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/autocare/staff': {
+      id: '/app/autocare/staff'
+      path: '/autocare/staff'
+      fullPath: '/app/autocare/staff'
+      preLoaderRoute: typeof AppAutocareStaffRouteImport
       parentRoute: typeof AppRoute
     }
     '/app/commerce/': {
@@ -953,8 +1029,12 @@ interface AppRouteChildren {
   AppReportsRoute: typeof AppReportsRoute
   AppSettingsRoute: typeof AppSettingsRoute
   AppIndexRoute: typeof AppIndexRoute
+  AppAutocareBaysRoute: typeof AppAutocareBaysRoute
   AppAutocareCalendarRoute: typeof AppAutocareCalendarRoute
+  AppAutocareCustomersRoute: typeof AppAutocareCustomersRoute
+  AppAutocarePaymentsRoute: typeof AppAutocarePaymentsRoute
   AppAutocareServicesRoute: typeof AppAutocareServicesRoute
+  AppAutocareStaffRoute: typeof AppAutocareStaffRoute
   AppCommerceCategoriesRoute: typeof AppCommerceCategoriesRoute
   AppCommerceCustomersRoute: typeof AppCommerceCustomersRoute
   AppCommerceDiscountsRoute: typeof AppCommerceDiscountsRoute
@@ -992,8 +1072,12 @@ const AppRouteChildren: AppRouteChildren = {
   AppReportsRoute: AppReportsRoute,
   AppSettingsRoute: AppSettingsRoute,
   AppIndexRoute: AppIndexRoute,
+  AppAutocareBaysRoute: AppAutocareBaysRoute,
   AppAutocareCalendarRoute: AppAutocareCalendarRoute,
+  AppAutocareCustomersRoute: AppAutocareCustomersRoute,
+  AppAutocarePaymentsRoute: AppAutocarePaymentsRoute,
   AppAutocareServicesRoute: AppAutocareServicesRoute,
+  AppAutocareStaffRoute: AppAutocareStaffRoute,
   AppCommerceCategoriesRoute: AppCommerceCategoriesRoute,
   AppCommerceCustomersRoute: AppCommerceCustomersRoute,
   AppCommerceDiscountsRoute: AppCommerceDiscountsRoute,
