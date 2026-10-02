@@ -56,23 +56,28 @@ export function MonthView({
         const inMonth = isSameMonth(day, cursor);
         const isToday = isSameDay(day, today);
         return (
-          <button
-            type="button"
+          <div
             key={day.toISOString()}
             onClick={() => onSelectDay?.(day)}
             className={cn(
-              "flex min-h-[92px] flex-col items-start gap-1 bg-surface p-2 text-left transition-colors hover:bg-accent/50",
+              "flex min-h-[92px] cursor-pointer flex-col items-start gap-1 bg-surface p-2 text-left transition-colors hover:bg-accent/50",
               !inMonth && "opacity-40",
             )}
           >
-            <span
+            <button
+              type="button"
+              aria-label={format(day, "MMMM d")}
+              onClick={(ev) => {
+                ev.stopPropagation();
+                onSelectDay?.(day);
+              }}
               className={cn(
                 "grid size-6 place-items-center rounded-full text-xs font-medium",
                 isToday && "bg-module text-module-foreground",
               )}
             >
               {format(day, "d")}
-            </span>
+            </button>
             <div className="flex w-full flex-col gap-1">
               {dayEvents.slice(0, 2).map((e) => (
                 <button
@@ -90,7 +95,7 @@ export function MonthView({
               {dayEvents.length > 2 && <span className="text-[10px] text-muted-foreground">+{dayEvents.length - 2} more</span>}
               {dayEvents.length > 0 && <span className="sm:hidden inline-flex size-1.5 rounded-full bg-module" aria-hidden />}
             </div>
-          </button>
+          </div>
         );
       })}
     </div>

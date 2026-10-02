@@ -66,7 +66,7 @@ function Page() {
       </header>
 
       <Tabs defaultValue={vehicles.length ? "vehicles" : orders.length ? "orders" : "bookings"}>
-        <TabsList className="h-11 rounded-full bg-surface-2 p-1">
+        <TabsList className="flex h-11 w-full justify-start overflow-x-auto scrollbar-none rounded-full bg-surface-2 p-1 sm:w-fit">
           <TabsTrigger value="bookings" className="rounded-full data-[state=active]:bg-foreground data-[state=active]:text-background"><Ticket className="mr-1.5 size-3.5" />Bookings</TabsTrigger>
           <TabsTrigger value="orders" className="rounded-full data-[state=active]:bg-foreground data-[state=active]:text-background"><ShoppingBag className="mr-1.5 size-3.5" />Orders</TabsTrigger>
           <TabsTrigger value="vehicles" className="rounded-full data-[state=active]:bg-foreground data-[state=active]:text-background"><Car className="mr-1.5 size-3.5" />Vehicles</TabsTrigger>
